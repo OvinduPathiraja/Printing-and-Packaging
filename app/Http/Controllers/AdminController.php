@@ -94,7 +94,8 @@ class AdminController extends Controller
         $category=category::all();
 
         return view('admin.update_product',compact('product','category'),);
-    }
+    }//////////////////
+    
         public function update_quote($id){
         $quote=quote::find($id);
         $category=category::all();

@@ -89,12 +89,12 @@
                             </div>
                             <div class="div_design">
                                 <label>Quantity</label>
-                                <input class="text_color" type="number" min="0" name="quantity" placeholder="Write a title" id="" required="">
+                                <input class="text_color" type="number" min="0" name="quantity" placeholder="" id="" required="">
                             </div>
 
                             <div class="div_design">
                                 <label>Mobile Number (contact)</label>
-                                <input class="text_color" type="number" min="0" name="mobile" placeholder="Write a title" id="" required="">
+                                <input class="text_color" type="number" min="0" name="mobile" placeholder="" id="" required="">
                             </div>
                             <div class="div_design">
                                 <input type="submit" value="Request" class="btn btn-outline-primary">

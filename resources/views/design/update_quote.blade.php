@@ -55,7 +55,7 @@
             </div>
 
             {{-- Header --}}
-            @include('admin.header')
+            @include('home.header3')
 
             <div class="padd"></div>
             
@@ -86,7 +86,7 @@
                             </div>
                             <div class="div_design">
                                 <label>quote Quantity</label>
-                                <input class="text_color" type="number" min="0" name="quantity" placeholder="Write a title" id="" required="" value="{{$quote->quantity}}">
+                                <input class="text_color" type="number" min="0" name="quantity" placeholder="" id="" required="" value="{{$quote->quantity}}">
                             </div>
                             <div class="div_design">
                                 <label>quote Category</label>
@@ -99,7 +99,7 @@
                             </div>
                              <div class="div_design">
                                 <label>Phone Number</label>
-                                <input class="text_color" type="number" name="price" placeholder="Write a price" id="" required="" value="{{$quote->mobile}}">
+                                <input class="text_color" type="number" name="price" placeholder="" id="" required="" value="{{$quote->mobile}}">
                             </div>
                             <div class="div_design">
                                 <input type="submit" value="Add quote" class="btn btn-outline-primary">
