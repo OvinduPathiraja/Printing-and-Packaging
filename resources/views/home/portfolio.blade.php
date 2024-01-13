@@ -108,7 +108,7 @@
                                     >
                                 </h2><br/>
                                 <p>
-                                    Request a quote based on your requirements. Simply fill out the form below with the necessary details for printing and 
+                                    Request a quote based on your requirements. Simply fill out the form below with the necessary details for printing and
                                     packaging or other services, and we’ll get back to you with a customised quote. For further inquiries, please contact us.
                                 </p>
                                 <p><a href="#" style="color:darkblue">Visit....</a></p>
@@ -127,7 +127,7 @@
                                     >
                                 </h2><br/>
                                 <p>
-                                    Our design solutions range from adhesive label designing to sophisticated value added printing artworks. Our 
+                                    Our design solutions range from adhesive label designing to sophisticated value added printing artworks. Our
                                     team works on the approved design to ensure it fits into the packaging, inner or outer carton effectively without any defects.
                                 </p>
                                 <p><a href="#" style="color:darkblue">Visit....</a></p>
@@ -146,12 +146,44 @@
                                     >
                                 </h2><br/>
                                 <p>
-                                    You can reorder a previous quota simply through this platform, From positioning of key messages of your product to finding the right colour and style of your brand, we work together to 
+                                    You can reorder a previous quota simply through this platform, From positioning of key messages of your product to finding the right colour and style of your brand, we work together to
                                     create the final design that’s functional and appealing. Once the final changes are done, they’ll be sent to you for approval, before it goes into the printing process.
                                 </p>
                                 <p><a href="#" style="color: darkblue">Visit...</a></p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="site-section" id="work-section">
+                <div class="container-fluid">
+                    <div class="row">
+                        @foreach ($product as $products)
+                            <div class="col-md-6 col-lg-4">
+                                <a href="product/{{$products->image}}" class="media-3" data-fancybox="gallery">
+                                    <img src="product/{{$products->image}}" alt="Image" class="img-fluid w-95 h-50 mx-auto" />
+                                </a>
+                                <div class="d-flex flex-column align-items-center pt-4">
+                                    <h5>{{$products->title}}</h5>
+                                    <h6>{{$products->description}}</h6><br/>
+                                    <p>Rs. {{$products->price}}</p>
+                                    <div class="mb-2 col-8">
+                                        <a class="btn btn-primary btn-block" href="{{url('product_details',$products->id)}}">Product Details</a>
+                                    </div>
+                                    <div class="row-mb-2">
+                                        <form action="{{url('add_cart',$products->id)}}" method="POST">
+                                            @csrf
+                                            <input type="number" value="1" min="1" >
+                                            <input type="submit" value="Add To Cart" class="btn btn-outline-secondary btn-block mt-2">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        <span class="col-3 text-center pl-5 pt-1">
+                            {!!$product->withQueryString()->links('pagination::bootstrap-5')!!}
+                        </span>
                     </div>
                 </div>
             </section>

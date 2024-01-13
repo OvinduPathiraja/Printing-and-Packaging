@@ -6,6 +6,11 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\cart_controller;
+use App\Http\Controllers\OpenaiController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,3 +72,13 @@ route::post('/quote',[AdminController::class,'quote']);
 route::post('/update_product_confirm/{id}',[AdminController::class,'update_product_confirm']);
 
 route::post('/update_quote_confirm/{id}',[AdminController::class,'update_quote_confirm']);
+
+route::get('/product_details/{id}',[HomeController::class,'product_details']);
+
+route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
+
+
+Route::get('/chat', [OpenaiController::class, 'index']);
+
+Route::post('/chat', [OpenaiController::class, 'getResponse']);
+

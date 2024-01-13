@@ -14,7 +14,7 @@
 
         {{-- Links --}}
         @include('home.links')
-        
+
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="col-12 mb-4">
                                     <p class="lead">
-                                        Offering you convenience, efficiency and the best quality in the market, we are your one-stop printing company for all your design, print and packaging needs. With over 
+                                        Offering you convenience, efficiency and the best quality in the market, we are your one-stop printing company for all your design, print and packaging needs. With over
                                         30 years of experience transforming the print packaging industry, print&box continues to be a leading service provider for local and global brands.
                                     </p>
                                 </div>
@@ -206,8 +206,8 @@
 
                                 <h2 class="text-primary">Sustainable Design</h2>
                                 <p class="mb-4">
-                                    Sourcing from sustainably managed forests 
-                                    and investing in carbon-neutral equipment. We adopted and gradually developed a sustainability framework in our operations allowing us to meet the international standards by identifying, managing, and controlling social, 
+                                    Sourcing from sustainably managed forests
+                                    and investing in carbon-neutral equipment. We adopted and gradually developed a sustainability framework in our operations allowing us to meet the international standards by identifying, managing, and controlling social,
                                     economic and environmental impact.
                                 </p>
                                 <!-- <ul class="list-unstyled ul-check primary">
@@ -249,6 +249,40 @@
                     </div>
                 </div>
             </section> -->
+            <section class="site-section" id="work-section">
+                <div class="container-fluid">
+                    <div class="row">
+                        @foreach ($product as $products)
+                            <div class="col-md-6 col-lg-4">
+                                <a href="product/{{$products->image}}" class="media-3" data-fancybox="gallery">
+                                    <img src="product/{{$products->image}}" alt="Image" class="img-fluid w-95 h-50 mx-auto" />
+                                </a>
+                                <div class="d-flex flex-column align-items-center pt-4">
+                                    <h5>{{$products->title}}</h5>
+                                    <h6>{{$products->description}}</h6><br/>
+                                    <p>Rs. {{$products->price}}</p>
+                                    <div class="mb-2 col-8">
+                                        <a class="btn btn-primary btn-block" href="{{url('product_details',$products->id)}}">Product Details</a>
+                                    </div>
+                                    <div class="row-mb-2">
+                                        <form action="{{url('add_cart',$products->id)}}" method="POST">
+                                            @csrf
+                                            <input type="number" value="1" min="1" >
+                                            <input type="submit" value="Add To Cart" class="btn btn-outline-secondary btn-block mt-2">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        <span class="col-3 text-center pl-5 pt-1">
+                            {!!$product->withQueryString()->links('pagination::bootstrap-5')!!}
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+
+
 
             <section class="site-section" id="work-section">
                 <div class="container">
@@ -258,7 +292,7 @@
                                 Our Works
                             </h2>
                             <p class="lead">
-                                Different industries demand different solutions. The best product packaging solutions should meet the international standards of each industry. 
+                                Different industries demand different solutions. The best product packaging solutions should meet the international standards of each industry.
                                 With years of experience and skill, we provide a variety of bespoke packaging and business printing solutions to suit your industry’s needs.
                             </p>
                         </div>
@@ -298,7 +332,7 @@
                                 />
                                 <div class="media-1-content">
                                     <h2>Confectionary Packaging</h2>
-                                    <span class="category">Attractive print packaging solutions are essential for the industry, especially to 
+                                    <span class="category">Attractive print packaging solutions are essential for the industry, especially to
                                       communicate your brand story and ensure you stand out on a supermarket shelf.</span>
                                 </div>
                             </a>
@@ -440,10 +474,10 @@
                                 <div>
                                     <h3>Design</h3>
                                     <p>
-                                        Partner with our talented design team at the first stage of our process to bring your vision to life. Collaborate with us to finalize your designs, ensuring that every detail is perfect before it goes to print. With our team's expertise and your unique vision, we will 
+                                        Partner with our talented design team at the first stage of our process to bring your vision to life. Collaborate with us to finalize your designs, ensuring that every detail is perfect before it goes to print. With our team's expertise and your unique vision, we will
                                         create designs that stand out and make a lasting impact. Experience seamless communication and unmatched creativity as we work together towards achieving your desired outcomes.
                                     </p>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -461,10 +495,10 @@
                                 <div>
                                     <h3>Sample</h3>
                                     <p>
-                                        Once the design is approved, we print out samples of your final product to test its 
+                                        Once the design is approved, we print out samples of your final product to test its
                                         compatibility, functionality, artwork, etc. When the samples are given the green-light, then we proceed to the next stage of our process.
                                     </p>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -482,10 +516,10 @@
                                 <div>
                                     <h3>Print</h3>
                                     <p>
-                                        The printing process starts by developing plates for package design layouts. Then the samples are 
+                                        The printing process starts by developing plates for package design layouts. Then the samples are
                                         printed, colour tested and sent for approval. Once approved, the mass production phase begins. Quality control screenings are carried out at each stage of the printing process.
                                     </p>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -504,10 +538,10 @@
                                 <div>
                                     <h3>Quality Control</h3>
                                     <p>
-                                        Our quality control mechanisms in place at each stage of production manually and with the use of modern 
+                                        Our quality control mechanisms in place at each stage of production manually and with the use of modern
                                         technology check each product. The colour quality control process starts from the pre-press and continues throughout the production.
                                     </p>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -525,10 +559,10 @@
                                 <div>
                                     <h3>Quality Assuarnce</h3>
                                     <p>
-                                        We release the final products only once they pass the required QA tests handled by our expert team. The screening machines on the production line remove defects by evaluating them on various 
+                                        We release the final products only once they pass the required QA tests handled by our expert team. The screening machines on the production line remove defects by evaluating them on various
                                         criteria including colour reproduction accuracy and cutting precision. At the end of the production process, the QA team manually checks each carton before approving it for delivery.
                                     </p>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -546,10 +580,10 @@
                                 <div>
                                     <h3>Shipping</h3>
                                     <p>
-                                        Once the printing process is completed, we arrange the product for delivery. 
+                                        Once the printing process is completed, we arrange the product for delivery.
                                         If there’s a requirement for storage, SC Printing offers solutions to store your products in a safe and secure warehouse until you need them.
                                     </p>
-                                    
+
                                 </div>
                             </div>
                         </div>
