@@ -26,7 +26,7 @@
                                             class="nav-link"
                                             >Workspace</a
                                         >
-                                        <ul class="dropdown"> 
+                                        <ul class="dropdown">
                                             <li>
                                            <x-app-layout></x-app-layout>
                                     </li>
@@ -44,9 +44,9 @@
                                     </li>
                                     <li>
                                         <a
-                                            href="#services-section"
+                                            href="{{url('admin_order')}}"
                                             class="nav-link"
-                                            >Process</a
+                                            >Order</a
                                         >
                                     </li>
                                     <li>

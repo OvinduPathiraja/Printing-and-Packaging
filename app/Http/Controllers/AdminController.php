@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\product;
 use App\Models\user;
 use App\Models\quote;
+use Barryvdh\DomPDF\PDF;
+
 
 class AdminController extends Controller
 {
@@ -24,7 +27,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message','Category added successfully');
 
-        
+
     }
 
     public function delete_category($id){
@@ -95,7 +98,7 @@ class AdminController extends Controller
 
         return view('admin.update_product',compact('product','category'),);
     }//////////////////
-    
+
         public function update_quote($id){
         $quote=quote::find($id);
         $category=category::all();
@@ -120,7 +123,7 @@ class AdminController extends Controller
         $imagename=time().'.'.$image->getClientOriginalExtension();
         $request->image->move('product',$imagename);
         $product->image=$imagename;
-        
+
         $product->save();
 
         return redirect()->back()->with('message','Product updated successfully');
@@ -133,7 +136,7 @@ class AdminController extends Controller
         $quote->mobile=$request->mobile;
         $quote->category=$request->category;
         $quote->quantity=$request->quantity;
-        
+
         $quote->save();
 
         return redirect()->back()->with('message','quote updated successfully');
@@ -172,5 +175,34 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message','quote Added Successfully');
     }
-    
+
+    public function admin_order(){
+        $order=Order::all();
+        return view('admin.order',compact('order'));
+    }
+
+    public function deliver($id){
+        $order=Order::find($id);
+        $order->delivery_status='Delivered';
+        $order->save();
+        return redirect()->back()->with('message','Order Delivered Successfully');
+    }
+
+    public function print_pdf($id)
+{
+    $order = Order::find($id);
+
+    if (!$order) {
+        return response()->json(['error' => 'Order not found'], 404);
+    }
+
+    // Create an instance of the PDF class
+    $pdf = app('dompdf.wrapper');
+
+    // Use the instance to load the view
+    $pdf->loadView('admin.pdf', compact('order'));
+
+    return $pdf->download('invoice.pdf');
+}
+
 }

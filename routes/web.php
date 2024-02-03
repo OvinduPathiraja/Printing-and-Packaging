@@ -8,8 +8,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\cart_controller;
 use App\Http\Controllers\OpenaiController;
-
-
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,4 +80,24 @@ route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 Route::get('/chat', [OpenaiController::class, 'index']);
 
 Route::post('/chat', [OpenaiController::class, 'getResponse']);
+
+route::get('/show_cart',[HomeController::class,'show_cart']);
+
+route::get('/delete_cart/{id}',[HomeController::class,'delete_cart']);
+
+route::get('/cash_order',[HomeController::class,'cash_order']);
+
+route::get('/stripe/{totalprice}',[HomeController::class,'stripe']);
+
+Route::post('stripePost', [HomeController::class, 'stripePost'])->name('stripe.post');
+
+Route::get('/success',[StripeController::class,'success'])->name('success');
+
+Route::post('/checkout',[StripeController::class,'checkout'])->name('checkout');
+
+route::get('/admin_order',[AdminController::class,'admin_order']);
+
+route::get('/deliver/{id}',[AdminController::class,'deliver']);
+
+route::get('/print_pdf/{id}',[AdminController::class,'print_pdf']);
 

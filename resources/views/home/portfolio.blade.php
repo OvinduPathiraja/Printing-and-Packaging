@@ -174,7 +174,7 @@
                                     <div class="row-mb-2">
                                         <form action="{{url('add_cart',$products->id)}}" method="POST">
                                             @csrf
-                                            <input type="number" value="1" min="1" >
+                                            <input type="number" value="1" min="1" name="quantity">
                                             <input type="submit" value="Add To Cart" class="btn btn-outline-secondary btn-block mt-2">
                                         </form>
                                     </div>

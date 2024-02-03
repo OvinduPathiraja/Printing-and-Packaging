@@ -32,6 +32,24 @@
             #text{
                 min-width: 300px;
             }
+            .center_table{
+                margin: auto;
+                width: 50%;
+                border: 2px solid gray;
+                text-align: center;
+            }
+            .h1-font{
+                text-align: center;
+                font-size: 35px;
+                padding-bottom: 20px;
+            }
+            .img_size{
+                width: 150px;
+                height: 150px;
+            }
+            .th-pad{
+                padding: 30px;
+            }
 /* Base */
 body {
   line-height: 1.7;
