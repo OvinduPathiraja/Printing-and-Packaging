@@ -1,6 +1,6 @@
 <header
                 class="site-navbar py-4 js-sticky-header site-navbar-target"
-                role="banner"
+                
             >
                 <div class="container">
                     <div class="row align-items-center">
@@ -19,49 +19,6 @@
                                 <ul
                                     class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
                                 >
-                                    <li>
-                                        <a href="#home-section" class="nav-link"
-                                            >Home</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a href="#work-section" class="nav-link"
-                                            >Work</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#services-section"
-                                            class="nav-link"
-                                            >Process</a
-                                        >
-                                    </li>
-                                    <li class="has-children">
-                                        <a
-                                            href="#about-section"
-                                            class="nav-link"
-                                            >About</a
-                                        >
-                                        <ul class="dropdown">
-                                            <li>
-                                                <a href="#about-section"
-                                                    >Specialties</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="#team-section"
-                                                    >Our Team</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#site-footer"
-                                            class="nav-link"
-                                            >Contact</a
-                                        >
-                                    </li>
                                     <li class="has-children">
                                         <a
                                         style="color: darkred"
@@ -69,7 +26,7 @@
                                             class="nav-link"
                                             >Workspace</a
                                         >
-                                        <ul class="dropdown"> 
+                                        <ul class="dropdown">
                                             <li>
                                         <a
                                             href="{{ route('login') }}"

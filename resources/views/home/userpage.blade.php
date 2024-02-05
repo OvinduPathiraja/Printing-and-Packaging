@@ -249,37 +249,6 @@
                     </div>
                 </div>
             </section> -->
-            <section class="site-section" id="work-section">
-                <div class="container-fluid">
-                    <div class="row">
-                        @foreach ($product as $products)
-                            <div class="col-md-6 col-lg-4">
-                                <a href="product/{{$products->image}}" class="media-3" data-fancybox="gallery">
-                                    <img src="product/{{$products->image}}" alt="Image" class="img-fluid w-95 h-50 mx-auto" />
-                                </a>
-                                <div class="d-flex flex-column align-items-center pt-4">
-                                    <h5>{{$products->title}}</h5>
-                                    <h6>{{$products->description}}</h6><br/>
-                                    <p>Rs. {{$products->price}}</p>
-                                    <div class="mb-2 col-8">
-                                        <a class="btn btn-primary btn-block" href="{{url('product_details',$products->id)}}">Product Details</a>
-                                    </div>
-                                    <div class="row-mb-2">
-                                        <form action="{{url('add_cart',$products->id)}}" method="POST">
-                                            @csrf
-                                            <input type="number" value="1" min="1" >
-                                            <input type="submit" value="Add To Cart" class="btn btn-outline-secondary btn-block mt-2">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        <span class="col-3 text-center pl-5 pt-1">
-                            {!!$product->withQueryString()->links('pagination::bootstrap-5')!!}
-                        </span>
-                    </div>
-                </div>
-            </section>
 
 
 

@@ -98,7 +98,8 @@
                             <tr style="padding-bottom: 20px;">
                                 <th>Product Title</th>
                                 <th>Product Quantity</th>
-                                <th>Product Price</th>
+                                <th>Unit Price</th>
+                                <th>Total Price</th>
                                 <th>Product Image</th>
                                 <th>Action</th>
                             </tr>
@@ -109,6 +110,8 @@
                                 <td>{{$cart->product_title}}</td>
                                 <td>{{$cart->quantity}}</td>
                                 <td>{{$cart->price}}</td>
+                                <?php $total_price = $cart->price * $cart->quantity; ?>
+                                <td>{{$total_price}}</td>
                                 <td>
                                     <img
                                         src="{{asset('product/'.$cart->image)}}"
@@ -131,25 +134,43 @@
 
                             @endforeach
                             <tr>
-                                <td colspan="2" align="right">Total Amount</td>
+                                <td colspan="3" align="right">Total Amount</td>
                                 <td>{{$total_amount}}</td>
                             </tr>
-                            <tr>
-                                <td colspan="2" align="right">
-                                    <a
+
+                        </table>
+
+                        <form action="{{url('order_place')}}" method="POST">
+                            @csrf
+                            <div class="form-group
+                                <label for="address" >Shipping Address</label>
+                                <input
+                                    type="text"
+                                    name="Address"
+                                    class="form-control"
+                                    required="" style="width: 50%" value="{{Auth::user()->address}}" name="address"
+                                />
+                            </div>
+                            <div class="form-group
+                                <label for="phone">Phone Number</label>
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    class="form-control"
+                                    required="" style="width: 50%" value="{{Auth::user()->phone}}" name="phone"
+                                />
+                            </div>
+                        </form>
+                        <a
                                         href="{{url('cash_order')}}"
                                         class="btn btn-outline-primary btn-sm"
                                         >Cash on Delivery</a
                                     >
-                                </td>
-                                <td>
                                     <a
                                         href="{{url('stripe',$total_amount)}}"
                                         class="btn btn-outline-primary btn-sm"
                                         >Pay by Card</a
                                     >
-                                </td>
-                        </table>
                     </div>
 
                 </section>

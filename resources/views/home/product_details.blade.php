@@ -83,7 +83,7 @@
             </div>
 
             {{-- Header --}}
-            @include('home.header')
+            @include('home.header2')
 
             <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
                 <div class="site-wrap">
@@ -105,11 +105,15 @@
                                     <div class="col-12 mb-4">
                                         <p class="lead">
                                             {{$product->description}}
-                                        </p>
-                                        <p>{{$product->price}}</p>
+                                        </p><br/>
+                                        <p>Rs. {{$product->price}}.00</p>
 
                                         <div class="mb-2 col-8">
-                                        <a class="btn btn-primary btn-block" href="">Add To Cart</a>
+                                            <form action="{{url('add_cart',$product->id)}}" method="POST">
+                                                @csrf
+                                                <input type="number" min="1" name="quantity" value="1">
+                                                <input type="submit" value="Add To Cart" class="btn btn-outline-secondary btn-block mt-2">
+                                            </form>
                                     </div>
                                     </div>
                                 </div>

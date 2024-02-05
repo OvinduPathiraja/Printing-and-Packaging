@@ -205,4 +205,10 @@ class AdminController extends Controller
     return $pdf->download('invoice.pdf');
 }
 
+public function delete_order($id){
+    $order=Order::find($id);
+    $order->delete();
+    return redirect()->back()->with('message','Order Deleted Successfully');
+}
+
 }

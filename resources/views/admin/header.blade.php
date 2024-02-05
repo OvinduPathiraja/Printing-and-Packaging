@@ -19,19 +19,7 @@
                                 <ul
                                     class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
                                 >
-                                    <li class="has-children">
-                                        <a
-                                        style="color: darkred"
-                                            href="#about-section"
-                                            class="nav-link"
-                                            >Workspace</a
-                                        >
-                                        <ul class="dropdown">
-                                            <li>
-                                           <x-app-layout></x-app-layout>
-                                    </li>
-                                        </ul>
-                                    </li>
+
                                     <li>
                                         <a href="/redirect" class="nav-link"
                                             >Home</a
@@ -43,18 +31,15 @@
                                         >
                                     </li>
                                     <li>
-                                        <a
-                                            href="{{url('admin_order')}}"
-                                            class="nav-link"
-                                            >Order</a
-                                        >
-                                    </li>
-                                    <li>
                                                 <a href="{{url('/users')}}"
                                                     >User</a
                                                 >
                                             </li>
 
+                                            <li>
+                                                <a href="{{ route('profile.show') }}"
+                                                    >Profile</a>
+                                            </li>
 
 
                                 </ul>

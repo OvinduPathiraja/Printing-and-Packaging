@@ -13,6 +13,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Session;
 
 use Stripe;
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -26,7 +27,10 @@ class HomeController extends Controller
         $usertype=Auth::user()->usertype;
 
         if($usertype=='1'){
-            return view('admin.dashboard');
+            $order = Order::select('product_title', DB::raw('sum(quantity) as total_quantity'))->groupBy('product_title')->get();
+            $totalorder = Order::select(DB::raw('MONTH(created_at) as month'), DB::raw('sum(price) as total_quantity'))->groupBy('month')->get();
+            return view('admin.dashboard',compact('order', 'totalorder'));
+            // dd($totalorder);
         }
         else if($usertype == '2'){
             return view('design.portfolio');
@@ -77,7 +81,6 @@ class HomeController extends Controller
     public function show_cart(){
         $id = Auth::user()->id;
         $cart = Cart::where('user_id',$id)->get();
-        // dd($cart);
         return view('home.showCart',compact('cart'));
     }
 
@@ -102,12 +105,12 @@ class HomeController extends Controller
             $order->address = $item->address;
             $order->product_title = $item->product_title;
             $order->user_id = $item->user_id;
-            $order->product_id = $item->product_id;
+            $order->productId = $item->product_id;
             $order->delivery_status = 'cash on delivery';
             $order->payment_status = 'pending';
             $order->save();
 
-            $cart_id = $data->id;
+            $cart_id = $item->id;
             $cart = Cart::find($cart_id);
             $cart->delete();
         }

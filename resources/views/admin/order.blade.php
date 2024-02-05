@@ -25,7 +25,6 @@
 
         </style>
 
-        {{-- Links --}}
         @include('home.links')
 
     </head>
@@ -63,7 +62,6 @@
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Payment</th>
                             <th>Delivery</th>
                             <th>Image</th>
                         </tr>
@@ -71,13 +69,12 @@
                         @foreach($order as $item)
                         <tr>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->id}}</td>
+                            <td>{{$item->email}}</td>
                             <td>{{$item->phone}}</td>
-                            <td>{{$item->product}}</td>
+                            <td>{{$item->product_title}}</td>
                             <td>{{$item->quantity}}</td>
                             <td>{{$item->price}}</td>
-                            <td>{{$item->payment}}</td>
-                            <td>{{$item->delivery}}</td>
+                            <td>{{$item->delivery_status}}</td>
                             <td><img src="{{asset('product/'.$item->image)}}" style="width: 100px; height: 100px;"></td>
 
                             @if ($item->delivery_status == 'Delivered')
@@ -88,6 +85,9 @@
 
                             <td>
                                 <a href="{{url('print_pdf',$item->id)}}" class="btn btn-secondary">Print</a>
+                            </td>
+                            <td>
+                                <a href="{{url('delete_order',$item->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach

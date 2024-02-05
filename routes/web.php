@@ -101,3 +101,8 @@ route::get('/deliver/{id}',[AdminController::class,'deliver']);
 
 route::get('/print_pdf/{id}',[AdminController::class,'print_pdf']);
 
+route::get('/delete_order/{id}',[AdminController::class,'delete_order']);
+
+
+
+

@@ -33,7 +33,7 @@
 
         {{-- Links --}}
         @include('home.links')
-        
+
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
@@ -50,13 +50,13 @@
             @include('home.header3')
 
             <div class="padd"></div>
-            
+
             <section class="site-section">
                 <div class="container">
                     @if(session()->has('message'))
                     <div class="alert alert-light">
                         <button type="button" class="close" dat-dismiss="alert" aria-hidden="true">x</button>
-                        {{session()->get('message')}} 
+                        {{session()->get('message')}}
                     </div>
                     @endif
                     <h1 class="h1-font">All Products</h1>
@@ -64,7 +64,6 @@
                     <table class="center_table">
                         <tr style="background-color: rgba(248, 248, 250, 0.755);padding-bottom: 20px;">
                             <th class="th-pad">Product Title</th>
-                            <th class="th-pad">Description</th>
                             <th class="th-pad">Quantity</th>
                             <th class="th-pad">Category</th>
                             <th class="th-pad">Price</th>
@@ -75,7 +74,6 @@
                         @foreach ($product as $product )
                         <tr>
                             <td>{{$product->title}}</td>
-                            <td>{{$product->description}}</td>
                             <td>{{$product->quantity}}</td>
                             <td>{{$product->category}}</td>
                             <td>{{$product->price}}</td>

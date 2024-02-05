@@ -41,7 +41,7 @@
 
         {{-- Links --}}
         @include('home.links')
-        
+
     </head>
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
         <div class="site-wrap">
@@ -58,20 +58,20 @@
             @include('home.header3')
 
             <div class="padd"></div>
-            
+
             <div class="main-panel">
                 <div class="content-wrapper">
                     @if(session()->has('message'))
                     <div class="alert alert-light">
                         <button type="button" class="close" dat-dismiss="alert" aria-hidden="true">x</button>
-                        {{session()->get('message')}} 
+                        {{session()->get('message')}}
                     </div>
                     @endif
                     <div class="div_center">
                         @if(session()->has('message'))
                     <div class="alert alert-light">
                         <button type="button" class="close" dat-dismiss="alert" aria-hidden="true">x</button>
-                        {{session()->get('message')}} 
+                        {{session()->get('message')}}
                     </div>
                     @endif
                         <h1 class="font_size">
@@ -86,7 +86,7 @@
                         <div>
                             <div class="div_design">
                                 <label>Product Description</label>
-                                <input class="text_color" type="text" name="description" placeholder="Write a Description" id="" required="" value="{{$product->description}}">
+                                <textarea class="text_color" name="description" placeholder="Write a Description" id="" required="">{{$product->description}}</textarea>
                             </div>
                             <div class="div_design">
                                 <label>Product Price</label>
@@ -111,7 +111,7 @@
                                 <input type="file" name="image" required="">
                             </div>
                             <div class="div_design">
-                                <input type="submit" value="Add Product" class="btn btn-outline-primary">
+                                <input type="submit" value="Update Product" class="btn btn-outline-primary">
                             </div>
                         </div>
                         </form>

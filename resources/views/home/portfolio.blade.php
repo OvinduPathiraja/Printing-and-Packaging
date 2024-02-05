@@ -165,18 +165,13 @@
                                     <img src="product/{{$products->image}}" alt="Image" class="img-fluid w-95 h-50 mx-auto" />
                                 </a>
                                 <div class="d-flex flex-column align-items-center pt-4">
-                                    <h5>{{$products->title}}</h5>
-                                    <h6>{{$products->description}}</h6><br/>
+                                    <h5>{{$products->title}}</h5><br/>
                                     <p>Rs. {{$products->price}}</p>
                                     <div class="mb-2 col-8">
                                         <a class="btn btn-primary btn-block" href="{{url('product_details',$products->id)}}">Product Details</a>
                                     </div>
                                     <div class="row-mb-2">
-                                        <form action="{{url('add_cart',$products->id)}}" method="POST">
-                                            @csrf
-                                            <input type="number" value="1" min="1" name="quantity">
-                                            <input type="submit" value="Add To Cart" class="btn btn-outline-secondary btn-block mt-2">
-                                        </form>
+
                                     </div>
                                 </div>
                             </div>

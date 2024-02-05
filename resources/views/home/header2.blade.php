@@ -44,7 +44,7 @@
                                     </li>
                                     <li>
                                         <a
-                                            href="{{url('/show_cart')}}}}"
+                                            href="{{url('/show_cart')}}"
                                             class="nav-link"
                                             >Cart</a
                                         >

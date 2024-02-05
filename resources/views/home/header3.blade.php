@@ -19,19 +19,6 @@
                                 <ul
                                     class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
                                 >
-                                    <li class="has-children">
-                                        <a
-                                        style="color: darkred"
-                                            href="#about-section"
-                                            class="nav-link"
-                                            >Workspace</a
-                                        >
-                                        <ul class="dropdown"> 
-                                            <li>
-                                           <x-app-layout></x-app-layout>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
                                         <a href="/redirect" class="nav-link"
                                             >Home</a
@@ -39,14 +26,7 @@
                                     </li>
                                     <li>
                                         <a href="{{url('show_quote')}}" class="nav-link"
-                                            >Quote</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#services-section"
-                                            class="nav-link"
-                                            >Process</a
+                                            >Quotations</a
                                         >
                                     </li>
                                     <li class="has-children">
@@ -63,15 +43,20 @@
                                             </li>
                                             <li>
                                                 <a href="{{url('/show_product')}}"
-                                                    >Show Products</a
+                                                    >Manage Products</a
                                                 >
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                                <a href=""
-                                                    >Designs</a
+                                                <a href="{{url('/admin_order')}}"
+                                                    >Orders</a
                                                 >
+                                            </li>
+
+                                            <li>
+                                                <a href="{{ route('profile.show') }}"
+                                                    >Profile</a>
                                             </li>
 
 
