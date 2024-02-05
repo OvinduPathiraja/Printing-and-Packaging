@@ -49,31 +49,13 @@
                                             >Cart</a
                                         >
                                     </li>
-                                    <li class="has-children">
-                                        <a
-                                            href="#about-section"
-                                            class="nav-link"
-                                            >Products</a
-                                        >
-                                        <ul class="dropdown">
-                                            <li>
-                                                <a href=""
-                                                    >Buy Products</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href=""
-                                                    >Cart</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
-                                         <a href=""
-                                                    ></a
-                                                >
-                                            </li>
-
+                                        <a
+                                            href="{{url('/show_cart')}}"
+                                            class="nav-link"
+                                            >History</a
+                                        >
+                                    </li>
 
 
                                 </ul>

@@ -142,12 +142,12 @@
                                 />
                                 <h2 class="font-size-regular">
                                     <a href="#"
-                                        >Reorder</a
+                                        >Order</a
                                     >
                                 </h2><br/>
                                 <p>
-                                    You can reorder a previous quota simply through this platform, From positioning of key messages of your product to finding the right colour and style of your brand, we work together to
-                                    create the final design that’s functional and appealing. Once the final changes are done, they’ll be sent to you for approval, before it goes into the printing process.
+                                    You can order a product simply through this platform, From positioning of key messages of your product to finding the right colour and style of your personalization, we work together to
+                                    create the final design that’s functional and appealing, before it goes into the printing process.
                                 </p>
                                 <p><a href="#" style="color: darkblue">Visit...</a></p>
                             </div>

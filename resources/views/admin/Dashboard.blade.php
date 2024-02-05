@@ -33,41 +33,45 @@
 
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         <!-- Customize width and height of the pie chart with inline styles -->
-                        <canvas id="chartjs-line" style="width: 1500px; height: 1000px;"></canvas>
+                        <canvas id="chartjs-line" style="width: 2500px; height: 1500px;"></canvas>
                     </div>
                 </div>
             </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <!-- Customize width and height of the pie chart with inline styles -->
-            <canvas id="chartjs-pie" style="width: 500px; height: 500px;"></canvas>
-        </div>
-    </div>
-</div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <!-- Customize width and height of the pie chart with inline styles -->
+                        <canvas id="chartjs-line-quantity" style="width: 2500px; height: 1500px;"></canvas>
+                    </div>
+                </div>
+            </div>
 
-<div class="container">
-    <h2>Order Summary</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product ID</th>
-                <th>Total Quantity</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($order as $item)
-                <tr>
-                    <td>{{ $item->product_title }}</td>
-                    <td>{{ $item->total_quantity }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+            <hr>
+
+        <br/>
+
+            <div class="container">
+                <h2>Order Summary</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Total Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($order as $item)
+                            <tr>
+                                <td>{{ $item->product_title }}</td>
+                                <td>{{ $item->total_quantity }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -84,8 +88,8 @@
     var productIds = {!! json_encode($order->pluck('product_title')) !!};
     var totalQuantities = {!! json_encode($order->pluck('total_quantity')) !!};
 
-    new Chart(document.getElementById("chartjs-pie"), {
-        type: "pie",
+    new Chart(document.getElementById("chartjs-doughnut"), {
+        type: "doughnut",
         data: {
             labels: productIds,
             datasets: [{
@@ -108,49 +112,51 @@
         }
     });
 
-    new Chart(document.getElementById("chartjs-doughnut"), {
-        type: "doughnut",
-        data: {
-            labels: ["Social", "Search Engines", "Direct", "Other"],
-            datasets: [{
-                data: [260, 125, 54, 146],
-                backgroundColor: [
-                    window.theme.primary,
-                    window.theme.success,
-                    window.theme.warning,
-                    "#dee2e6"
-                ],
-                borderColor: "transparent"
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            cutoutPercentage: 65,
-            responsive: false, // Set to false to prevent resizing
-            width: 500,        // Specify width
-            height: 500        // Specify height
-        }
-    });
-
     var totalorderData = {!! json_encode($totalorder->pluck('total_quantity')) !!};
+    var totalquantityData = {!! json_encode($totalquantity->pluck('total_quantity2')) !!};
 
 new Chart(document.getElementById("chartjs-line"), {
     type: "line",
     data: {
         labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec","Jan", "Feb", "Mar"],
         datasets: [{
-            label: "Sales ($)",
+            label: "Sales (Rs)",
             fill: true,
             backgroundColor: "transparent",
             borderColor: window.theme.primary,
             data: totalorderData // Replace with the actual key for sales data in your totalorder array
-        }, {
-            label: "Orders",
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                reverse: true,
+                gridLines: {
+                    color: "rgba(0,0,0,0.05)"
+                }
+            }],
+            yAxes: [{
+                borderDash: [5, 5],
+                gridLines: {
+                    color: "rgba(0,0,0,0)",
+                    fontColor: "#fff"
+                }
+            }]
+        }
+    }
+});
+
+new Chart(document.getElementById("chartjs-line-quantity"), {
+    type: "line",
+    data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec","Jan", "Feb", "Mar"],
+        datasets: [ {
+            label: "Total Quantity",
             fill: true,
             backgroundColor: "transparent",
             borderColor: "#adb5bd",
             borderDash: [4, 4],
-            data: totalorderData.ordersData // Replace with the actual key for orders data in your totalorder array
+            data: totalquantityData // Replace with the actual key for orders data in your totalorder array
         }]
     },
     options: {

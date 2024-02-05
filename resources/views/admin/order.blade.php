@@ -57,7 +57,7 @@
                     <table class="center2">
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Address</th>
                             <th>Phone</th>
                             <th>Product</th>
                             <th>Quantity</th>
@@ -69,7 +69,7 @@
                         @foreach($order as $item)
                         <tr>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->email}}</td>
+                            <td>{{$item->address}}</td>
                             <td>{{$item->phone}}</td>
                             <td>{{$item->product_title}}</td>
                             <td>{{$item->quantity}}</td>

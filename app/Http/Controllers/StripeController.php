@@ -36,12 +36,15 @@ class StripeController extends Controller
         foreach($cart as $c){
             $order = new Order;
             $order->user_id = Auth::user()->id;
-            $order->product_id = $c->productId;
+            $order->productId = $c->product_id;
             $order->quantity = $c->quantity;
             $order->price = $c->price;
             $order->image = $c->image;
             $order->delivery_status = 'Card Payment';
             $order->product_title = $c->product_title;
+            $order->address = Auth::user()->address;
+            $order->phone = Auth::user()->phone;
+            $order->name = Auth::user()->name;
             $order->save();
             $c->delete();
         }
