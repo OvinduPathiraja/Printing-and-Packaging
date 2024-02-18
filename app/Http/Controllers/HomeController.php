@@ -28,7 +28,7 @@ class HomeController extends Controller
 
         if($usertype=='1'){
             $order = Order::select('product_title', DB::raw('sum(quantity) as total_quantity'))->groupBy('product_title')->get();
-            $totalorder = Order::select(DB::raw('YEAR(created_at) as year'), DB::raw('MONTH(created_at) as month'), DB::raw('sum(price) as total_quantity'))->groupBy('year', 'month')->get();
+            $totalorder = Order::select(DB::raw('YEAR(created_at) as year'), DB::raw('MONTH(created_at) as month'), DB::raw('sum(price * quantity) as total_quantity'))->groupBy('year', 'month')->get();
             $totalquantity = Order::select(DB::raw('YEAR(created_at) as year'), DB::raw('MONTH(created_at) as month'), DB::raw('sum(quantity) as total_quantity2'))->groupBy('year', 'month')->get();
             return view('admin.dashboard',compact('order', 'totalorder', 'totalquantity'));
             // dd($totalorder);

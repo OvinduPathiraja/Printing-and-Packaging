@@ -251,6 +251,78 @@
             </section> -->
 
 
+            <div class="site-section" id="about-section">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div
+                            class="col-md-5 ml-auto mb-5 order-md-1"
+                            data-jarallax-element="50"
+                        >
+                            <img
+                                src="images/PPaper_bags.jpg"
+                                alt="Image"
+                                class="img-fluid rounded"
+                            />
+                        </div>
+                        <div
+                            class="col-md-6 order-md-2"
+                            data-jarallax-element="-50"
+                        >
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="text-left pb-1">
+                                        <h2 class="site-section-heading">
+                                            Paper Bags
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <p class="lead">
+                                        Birthdays, weddings, holidays, or just a spontaneous expression of love – our paper bags are a perfect fit for any occasion.
+                                        Choose from our collection of designs or customize your own to match the mood and theme of your celebration.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="site-section" id="about-section">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div
+                            class="col-md-5 ml-auto mb-5 order-md-2"
+                            data-jarallax-element="50"
+                        >
+                            <img
+                                src="images/cardboard_box.jpg"
+                                alt="Image"
+                                class="img-fluid rounded"
+                            />
+                        </div>
+                        <div
+                            class="col-md-6 order-md-1"
+                            data-jarallax-element="-50"
+                        >
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="text-left pb-1">
+                                        <h2 class="site-section-heading">
+                                            Cardboard Boxes
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <p class="lead">
+                                        No matter your industry or product, our custom printed cardboard boxes offer versatile solutions.
+                                        Perfect for retail, e-commerce, events, or product launches, our boxes are adaptable to your unique requirements. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
             <section class="site-section" id="work-section">

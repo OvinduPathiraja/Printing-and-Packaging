@@ -40,7 +40,7 @@
             </div>
 
             {{-- Header --}}
-            @include('admin.header')
+            @include('home.header3')
             <div class="padd"></div>
             <div class="work-section" id="work-section">
                 <div class="container">
